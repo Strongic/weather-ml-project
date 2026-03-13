@@ -1,0 +1,86 @@
+Project Design Document
+Problem Definition:
+	Build an interactive web platform that allows users to compare multiple machine learning models for predicting next-day temperature at a select location using historical data.
+
+Target variable:
+-	Next day average temperature
+-	Future variables:
+o	Temperature (start with temp first)
+o	Rainfall chance,
+o	Precipitation,
+o	Wind speed,
+o	Cloud coverage,
+o	Humidity,
+o	Pressure
+
+Granularity:
+-	Daily
+
+How much history:
+-	Last 5 years (option for users to select later dates)
+
+Where the data is coming from:
+-	Weather API resources
+o	National Oceanic and Atmospheric Administration (API)
+o	OpenWeather (API)
+o	Meteostat (python library)
+o	National Weather Service (API)
+Language:
+-	Python, utilizing libraries such as 
+o	Meteostat
+o	pandas 
+o	scikit-learn
+Frontend:
+-	React?
+-	Basic html/js/css? (start with basic and upgrade user experience later?)
+
+Backend:
+-	FastAPI?
+-	Flask?
+
+Storage:
+-	Local storage (start with local caching)
+-	CSV? – good for persistence
+-	PostgreSQL?
+
+Models:
+-	Least Squares (start with linear regression first)
+-	Random Forest
+-	Gradient Boosting
+
+Feature engineering:
+-	Previous day temperature
+-	Other metrics (unsure of data at this point)
+
+Representing data:
+-	Must be easy to read, visual and comparable
+-	Actual vs predicted (for training)
+-	Compare MAE across models
+-	Residual plot to show model bias
+-	Metrics table to plot everything?; model, MAE, RMSE, MAPE 
+-	Add training time?
+
+Phase 1:
+-	Pull data from meteostat,
+-	Clean data
+-	Train linear regression on one feature (temp)
+-	Plot and print metrics, MSE, RMSE,MAE, etc
+-	Add more features? Precipitation, windspeed, etc?
+
+Phase 2: 
+-	Add Random Forest model
+-	Compare models (print/plot errors showing which did better)
+
+Phase 3:
+-	Build backend API
+-	Ready outputs to be parsed to frontend
+
+Phase 4:
+-	Build frontend
+-	Take data from backend and display on frontend
+-	Compare models to reputable forecast predictions 
+
+Phase 5: 
+-	Deploy
+
+Architecture:
